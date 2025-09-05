@@ -166,7 +166,8 @@ class WebSocketManager:
         }
         
         # Add recent discoveries (last 5)
-        for discovery in DISCOVERY_DETECTOR.discoveries[-5:]:
+        recent_discoveries = list(DISCOVERY_DETECTOR.discoveries.values())[-5:]
+        for discovery in recent_discoveries:
             discovery_stats["recent_discoveries"].append({
                 "name": discovery.name,
                 "significance": discovery.significance,
